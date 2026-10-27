@@ -429,9 +429,8 @@ abstract class Parser
             return static::parseDataElement($rawElement, $descriptor->type);
         } elseif ($descriptor->type->getName() === Bin::class) {
             return static::parseBinaryBlock($rawElement);
-        } else {
-            return static::parseDeg($rawElement, $descriptor->type->name, $descriptor->optional);
         }
+        return static::parseDeg($rawElement, $descriptor->type->name, $descriptor->optional);
     }
 
     /**

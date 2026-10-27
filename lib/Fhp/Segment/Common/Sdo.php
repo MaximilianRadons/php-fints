@@ -38,9 +38,8 @@ class Sdo extends BaseDeg
             return $this->betrag->wert;
         } elseif ($this->sollHabenKennzeichen === self::DEBIT) {
             return -1 * $this->betrag->wert;
-        } else {
-            throw new \InvalidArgumentException("Invalid sollHabenKennzeichen: $this->sollHabenKennzeichen");
         }
+        throw new \InvalidArgumentException("Invalid sollHabenKennzeichen: $this->sollHabenKennzeichen");
     }
 
     public function getCurrency(): string

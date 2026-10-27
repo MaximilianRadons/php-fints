@@ -41,9 +41,8 @@ abstract class Serializer
             return rtrim(number_format($value, 2, ',', ''), '0');
         } elseif ($type === 'bool' || $type === 'boolean') {
             return $value ? 'J' : 'N';
-        } else {
-            throw new \RuntimeException("Unsupported type $type");
         }
+        throw new \RuntimeException("Unsupported type $type");
     }
 
     /**
@@ -152,9 +151,8 @@ abstract class Serializer
             return $value === null ? '' : $value->toString();
         } elseif ($fullySerialize) {
             return static::serializeDeg($value, DegDescriptor::get($type->name));
-        } else {
-            return static::serializeElements($value, DegDescriptor::get($type->name));
         }
+        return static::serializeElements($value, DegDescriptor::get($type->name));
     }
 
     /**
